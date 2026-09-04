@@ -56,7 +56,120 @@ Para los campos con comando: ábrelo en la terminal, en la carpeta del repositor
 
 ---
 
-## Sección 1 · Arranque del sistema
+## Sección 1 · Primer vistazo al código (obligatorio, antes de arrancar el sistema)
+
+Con más tiempo de sesión, empiezas **mirando el código por encima** antes de tocar la ventana. No necesitas entenderlo todo, solo ubicarte: qué archivos hay y qué hace cada uno. Los hallazgos de calidad vienen después, en la Sección 3; aquí solo te orientas.
+
+**🧭 Mapa de archivos** — toda la aplicación vive en `src/minihotel/`:
+
+| Archivo | Qué contiene (y nada más) |
+|---|---|
+| `main.py` | Punto de entrada: solo llama a `app.py` |
+| `src/minihotel/habitacion.py` | La clase `Habitacion` (los datos de una habitación) |
+| `src/minihotel/hotel.py` | Toda la lógica: reservar, cancelar, descuento, caja |
+| `src/minihotel/reporte.py` | El reporte y la exportación a CSV |
+| `src/minihotel/app.py` | La ventana y los botones (la interfaz) |
+
+Abre cada archivo con el Bloc de notas, VS Code o Notepad++ (no hace falta un IDE) y sigue los pasos.
+
+---
+
+### CR1 · Cuenta archivos y líneas del proyecto
+
+**Comando(s) a usar:**
+
+```
+(Get-ChildItem -Recurse -Filter *.py src).Count                                  (PowerShell)
+(Get-ChildItem -Recurse -Filter *.py src | Get-Content | Measure-Object -Line).Lines   (PowerShell)
+find src -name "*.py" | wc -l ; find src -name "*.py" | xargs wc -l               (Git Bash)
+```
+
++--------------------------------------------------------------------------+
+| 💻 PEGA AQUÍ EL COMANDO Y SU RESULTADO (CR1)                              |
++==========================================================================+
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
++--------------------------------------------------------------------------+
+
+**✍️ ¿Cuántos archivos `.py` tiene el proyecto? ¿Cuántas líneas en total (aprox.)?** *(escribe sobre las líneas amarillas)*
+
+[__________________________________________________________________]{.mark}
+
+[__________________________________________________________________]{.mark}
+
+---
+
+### CR2 · Encuentra el punto de entrada
+
+**▶️ Haz esto:** abre `main.py` en la raíz del repositorio (tiene menos de 10 líneas).
+
+**✍️ ¿A qué función, de qué archivo, termina llamando `main.py`?** *(escribe sobre las líneas amarillas)*
+
+[__________________________________________________________________]{.mark}
+
+[__________________________________________________________________]{.mark}
+
+---
+
+### CR3 · Cuenta cuántos métodos tiene cada archivo
+
+**Comando(s) a usar** (repite cambiando el nombre del archivo: `hotel.py`, `app.py`, `reporte.py`):
+
+```
+Select-String -Path src\minihotel\hotel.py -Pattern "def " | Measure-Object   (PowerShell)
+grep -c "def " src/minihotel/hotel.py                                          (Git Bash)
+```
+
++--------------------------------------------------------------------------+
+| 💻 PEGA AQUÍ EL COMANDO Y SU RESULTADO (CR3, los 3 archivos)              |
++==========================================================================+
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
++--------------------------------------------------------------------------+
+
+**✍️ ¿Cuántos métodos tiene `hotel.py` // `app.py` // `reporte.py`? ¿Cuál tiene más?** *(escribe sobre las líneas amarillas)*
+
+[__________________________________________________________________]{.mark}
+
+[__________________________________________________________________]{.mark}
+
+---
+
+### CR4 · Ubica los comentarios que el propio código trae
+
+El código marca sus propios defectos sembrados con la etiqueta `Defecto sembrado` o `BUG`, para que se puedan encontrar rápido.
+
+**Comando(s) a usar:**
+
+```
+Select-String -Path src\minihotel\*.py -Pattern "Defecto sembrado|BUG"   (PowerShell)
+grep -rn "Defecto sembrado\|BUG" src/minihotel/*.py                       (Git Bash)
+```
+
++--------------------------------------------------------------------------+
+| 💻 PEGA AQUÍ EL COMANDO Y SU RESULTADO (CR4)                              |
++==========================================================================+
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
+| \                                                                        |
++--------------------------------------------------------------------------+
+
+**✍️ Copia UN comentario "Defecto sembrado" o "BUG" que hayas visto (no hace falta entenderlo todavía, solo ubicarlo).** *(escribe sobre las líneas amarillas)*
+
+[__________________________________________________________________]{.mark}
+
+[__________________________________________________________________]{.mark}
+
+---
+
+## Sección 2 · Arranque del sistema
 
 **▶️ Haz esto:**
 
@@ -88,7 +201,7 @@ Para los campos con comando: ábrelo en la terminal, en la carpeta del repositor
 
 ---
 
-## Sección 2 · Pruebas y hallazgos
+## Sección 3 · Pruebas y hallazgos
 
 Haz los bloques **en orden**. Al final debes tener **al menos 8** bloques con "SÍ" en "¿Hay defecto?" y todos sus campos llenos.
 
@@ -1057,19 +1170,11 @@ grep -n "for hab in self.habitaciones" src/minihotel/hotel.py                   
 
 ---
 
-## Sección 2.1 · Verificación rápida en el código (bonus, no cuenta para el mínimo de 8)
+## Sección 4 · Verificación en el código (obligatorio) — confirma tus hallazgos
 
-Hasta aquí diagnosticaste **usando la ventana** (calidad externa). Estos 8 bloques cierran el círculo: vas al **código fuente** y confirmas que la causa de lo que viste está realmente ahí (calidad interna). No corrijas nada, solo cita la línea.
+Hasta aquí diagnosticaste **usando la ventana** (calidad externa). Estos 8 bloques cierran el círculo: vas al **código fuente** (el mismo que ya recorriste en la Sección 1) y confirmas que la causa de lo que viste está realmente ahí (calidad interna). No corrijas nada, solo cita la línea.
 
-**🧭 Para no perderte (primera vez leyendo código):** abre la carpeta `src/minihotel/` con el Bloc de notas, VS Code o Notepad++ (no hace falta un IDE). Solo necesitas **3 archivos**, cada uno con un trabajo:
-
-| Archivo | Qué contiene (y nada más) | Bloques que lo usan |
-|---|---|---|
-| `src/minihotel/hotel.py` | Toda la lógica: reservar, cancelar, descuento, caja | PB1, PB2, PB3, PB4, PB7 |
-| `src/minihotel/reporte.py` | El reporte lento y la exportación a CSV | PB5, PB6 |
-| `src/minihotel/app.py` | Solo la ventana y los botones (ya lo viste en P18) | — |
-
-En cada bloque de abajo se te dice **exactamente qué archivo abrir y qué palabra buscar** (`Ctrl+F` en el editor, o el comando de terminal que se da). No necesitas leer el archivo completo: busca solo esa palabra y mira las 3-4 líneas alrededor.
+En cada bloque de abajo se te dice **exactamente qué archivo abrir y qué palabra buscar** (`Ctrl+F` en el editor, o el comando de terminal que se da). No necesitas releer el archivo completo: busca solo esa palabra y mira las 3-4 líneas alrededor.
 
 ---
 
@@ -1298,7 +1403,7 @@ grep -rc "Defecto sembrado\|BUG" src/minihotel/ | awk -F: '{s+=$2} END{print s}'
 
 ---
 
-## Sección 3 · Resumen por característica
+## Sección 5 · Resumen por característica
 
 Cuenta tus bloques con "SÍ" en "¿Hay defecto?".  **C** = 0 hallazgos · **O** = solo Menores/Obs. · **NC** = al menos 1 Mayor o Crítica · **NE** = no se pudo probar.
 Escribe los valores sobre las líneas amarillas, en el mismo orden de las filas.
@@ -1336,7 +1441,7 @@ Escribe los valores sobre las líneas amarillas, en el mismo orden de las filas.
 
 ---
 
-## Sección 4 · Línea base consolidada
+## Sección 6 · Línea base consolidada
 
 **✍️ Total de hallazgos** (bloques con "SÍ"): [______]{.mark}
 
@@ -1352,7 +1457,7 @@ Escribe los valores sobre las líneas amarillas, en el mismo orden de las filas.
 
 ---
 
-## Sección 5 · Aspectos que NO se pudieron evaluar hoy
+## Sección 7 · Aspectos que NO se pudieron evaluar hoy
 
 *(llénalo solo si algún bloque no lo pudiste hacer)*
 
@@ -1364,7 +1469,7 @@ Escribe los valores sobre las líneas amarillas, en el mismo orden de las filas.
 
 ---
 
-## Sección 6 · Dictamen de línea base
+## Sección 8 · Dictamen de línea base
 
 **✍️ Características No conformes: ____ de 8   //   No evaluadas: ____ de 8   //   Característica más débil:**
 
@@ -1380,11 +1485,13 @@ Escribe los valores sobre las líneas amarillas, en el mismo orden de las filas.
 
 ---
 
-## Sección 7 · Antes de entregar (marca todo con una X)
+## Sección 9 · Antes de entregar (marca todo con una X)
 
 ☐ Sección 0 completa (commit, SO, Python).
 
-☐ Sección 1 (arranque) con sus casillas y la captura pegada.
+☐ Sección 1 (primer vistazo al código) con los 4 bloques CR1–CR4 completos.
+
+☐ Sección 2 (arranque) con sus casillas y la captura pegada.
 
 ☐ Todos los bloques P1–P20 con: pregunta marcada + líneas amarillas escritas + captura pegada (y comando pegado donde se pide).
 
@@ -1392,15 +1499,17 @@ Escribe los valores sobre las líneas amarillas, en el mismo orden de las filas.
 
 ☐ Al menos **6 de 8** características con algún hallazgo.
 
-☐ Sección 3 (resumen) completa.
+☐ Sección 4 (verificación en el código) con los 8 bloques PB1–PB8 completos.
 
-☐ Sección 4 con el total y la característica más comprometida justificada.
+☐ Sección 5 (resumen) completa.
 
-☐ Sección 6 con el enunciado objetivo, sin soluciones.
+☐ Sección 6 con el total y la característica más comprometida justificada.
+
+☐ Sección 8 con el enunciado objetivo, sin soluciones.
 
 ---
 
-## Sección 8 · Firmas
+## Sección 10 · Firmas
 
 <br><br>
 

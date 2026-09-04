@@ -21,7 +21,7 @@ calidad**: describir objetivamente su estado actual según un modelo estándar
 (ISO/IEC 25010), sin corregir nada todavía.
 
 - **Modalidad:** células de 2–3 estudiantes.
-- **Duración:** 1 sesión (5 h).
+- **Duración:** 1 sesión (3 h).
 - **Sistema:** MiniHotel (Python + Tkinter, aplicación de escritorio). Ver `README.md` para levantarlo.
 
 ---
@@ -32,22 +32,29 @@ calidad**: describir objetivamente su estado actual según un modelo estándar
 
 | Tipo | Qué mira | Cómo se observa hoy |
 |---|---|---|
-| **Interna** | Propiedades del código y diseño (estructura, complejidad) | Revisión de código, métricas estáticas *(semanas posteriores)* |
-| **Externa** | Comportamiento del sistema en ejecución (fallos, tiempos, errores) | **Usando el sistema** *(lo de hoy)* |
+| **Interna** | Propiedades del código y diseño (estructura, complejidad) | **Primer vistazo guiado al código** *(Sección 1, obligatorio)* y **verificación de causa** *(Sección 4, obligatorio)*; el análisis de código a fondo con métricas y herramientas estáticas sigue siendo de semanas posteriores |
+| **Externa** | Comportamiento del sistema en ejecución (fallos, tiempos, errores) | **Usando el sistema** *(Secciones 2–3, lo central de hoy)* |
 | **En uso** | Resultado para el usuario real (eficacia, satisfacción, riesgo) | Pruebas con usuarios / operación *(más adelante)* |
 
-En esta sesión trabajas sobre todo la **calidad externa** (y algo de la
-interna evidente a simple vista, como la organización del proyecto).
+En esta sesión trabajas sobre todo la **calidad externa**, pero con la
+sesión de 3 h ahora sí alcanza para tocar la **calidad interna** dos veces:
+antes de arrancar (orientación) y después de explorar (confirmación).
 
-> **Bonus (opcional):** la ficha de diagnóstico incluye una Sección 2.1 con 8
-> bloques (PB1–PB8) donde vas al **código fuente** a confirmar la causa de
-> los hallazgos que ya viste usando la ventana (descuento, sobreventa,
-> "cancelar" que no libera, arqueo de caja, ruta fija, reporte lento, moneda
-> inconsistente). Trae un mapa de los 3 archivos de `src/minihotel/` y en
-> cada bloque se indica exactamente qué archivo abrir y qué palabra buscar,
-> pensado para quien lee código por primera vez. No es obligatorio para
-> aprobar, pero conecta calidad externa con calidad interna antes de que el
-> análisis de código sea el foco central en semanas posteriores.
+> **Obligatorio (código):** la ficha de diagnóstico trae dos bloques de
+> código, ya no opcionales:
+> - **Sección 1 — Primer vistazo al código (CR1–CR4):** antes de arrancar la
+>   app, un recorrido guiado por los 5 archivos de `src/minihotel/` (cuántos
+>   archivos y líneas hay, dónde está el punto de entrada, cuántos métodos
+>   tiene cada archivo, y ubicar los comentarios `Defecto sembrado`/`BUG` que
+>   el propio código trae). Solo orientación, todavía no hay veredicto.
+> - **Sección 4 — Verificación en el código (PB1–PB8):** después de explorar
+>   la ventana, confirmas en el código la causa real de los hallazgos más
+>   importantes (descuento, sobreventa, "cancelar" que no libera, arqueo de
+>   caja, ruta fija, reporte lento, moneda inconsistente).
+>
+> Ambos bloques indican **exactamente** qué archivo abrir y qué palabra
+> buscar (pensado para quien lee código por primera vez); si te faltan, la
+> ficha se considera incompleta (ver `LISTA_COTEJO_MINIHOTEL.md`, Dimensión 5).
 
 ### 2.2. Modelo de calidad del producto ISO/IEC 25010
 
