@@ -92,7 +92,17 @@ Los comandos `grep -n` / `Select-String` que se dan en cada bloque **ya imprimen
 
 el `131` de antes de los dos puntos **es el número de línea**. No necesitas abrir el editor para esto — solo para leer más contexto alrededor si te hace falta.
 
-**Para la "Ubicación exacta del error":** escribe `archivo.py:número` (por ejemplo `hotel.py:131`), usando cualquiera de las dos opciones de arriba.
+**Opción C — buscar en TODOS los archivos a la vez (VS Code, para PB7 y CR4):**
+
+Cuando la palabra puede estar repartida en varios archivos (por ejemplo `S/` en PB7, o `Defecto sembrado` en CR4), no busques archivo por archivo:
+
+1. En VS Code, presiona **Ctrl+Shift+F** (búsqueda global) en vez de Ctrl+F.
+2. Escribe la palabra. A la izquierda aparece la lista de **todos** los archivos donde aparece, con el número de línea al lado de cada resultado.
+3. Clic en cualquier resultado y te lleva directo a esa línea, en ese archivo.
+
+**Truco extra — ir directo a una línea que ya conoces:** si el comando de terminal ya te dio el número (ej. `131:`), en VS Code presiona **Ctrl+G**, escribe `131` y Enter: te lleva directo ahí sin tener que buscar.
+
+**Para la "Ubicación exacta del error":** escribe `archivo.py:número` (por ejemplo `hotel.py:131`), usando cualquiera de las opciones de arriba.
 
 ---
 
