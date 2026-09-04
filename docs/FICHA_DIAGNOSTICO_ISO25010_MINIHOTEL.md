@@ -1198,6 +1198,14 @@ grep -n -A4 "def _precio_con_descuento" src/minihotel/hotel.py                  
 | \                                                                        |
 +--------------------------------------------------------------------------+
 
+**🔎 ¿Qué está mal? (explícalo en tus palabras, 1 línea)**
+
+[__________________________________________________________________]{.mark}
+
+**📍 Ubicación exacta del error — archivo : línea (usa el número que te dio el comando)**
+
+[__________________________________________________________________]{.mark}
+
 **✍️ ¿Qué operación usa (resta o multiplicación)? Copia la línea exacta.** *(escribe sobre las líneas amarillas)*
 
 [__________________________________________________________________]{.mark}
@@ -1225,6 +1233,14 @@ grep -c "estado ==" src/minihotel/hotel.py                                      
 | \                                                                        |
 | \                                                                        |
 +--------------------------------------------------------------------------+
+
+**🔎 ¿Qué está mal? (explícalo en tus palabras, 1 línea)**
+
+[__________________________________________________________________]{.mark}
+
+**📍 Ubicación exacta del error — archivo : línea (usa el número que te dio el comando)**
+
+[__________________________________________________________________]{.mark}
 
 **✍️ ¿Cuántas veces se valida `estado` antes de reservar? (si sale 0, esa es la causa de la sobreventa)** *(escribe sobre las líneas amarillas)*
 
@@ -1254,6 +1270,14 @@ grep -n -A11 "def cancelar" src/minihotel/hotel.py                              
 | \                                                                        |
 +--------------------------------------------------------------------------+
 
+**🔎 ¿Qué está mal? (explícalo en tus palabras, 1 línea)**
+
+[__________________________________________________________________]{.mark}
+
+**📍 Ubicación exacta del error — archivo : línea (usa el número que te dio el comando)**
+
+[__________________________________________________________________]{.mark}
+
 **✍️ Dentro de ese método, ¿hay alguna línea que ponga `h.estado = "Libre"`? (sí / no)** *(escribe sobre las líneas amarillas)*
 
 [__________________________________________________________________]{.mark}
@@ -1281,6 +1305,14 @@ grep -n "self.caja +=" src/minihotel/hotel.py                          (Git Bash
 | \                                                                        |
 | \                                                                        |
 +--------------------------------------------------------------------------+
+
+**🔎 ¿Qué está mal? (explícalo en tus palabras, 1 línea)**
+
+[__________________________________________________________________]{.mark}
+
+**📍 Ubicación exacta del error — archivo : línea (usa el número que te dio el comando)**
+
+[__________________________________________________________________]{.mark}
 
 **✍️ Copia la línea exacta. ¿Usa el precio CON o SIN descuento?** *(escribe sobre las líneas amarillas)*
 
@@ -1310,6 +1342,14 @@ grep -n "ruta = " src/minihotel/reporte.py                         (Git Bash)
 | \                                                                        |
 +--------------------------------------------------------------------------+
 
+**🔎 ¿Qué está mal? (explícalo en tus palabras, 1 línea)**
+
+[__________________________________________________________________]{.mark}
+
+**📍 Ubicación exacta del error — archivo : línea (usa el número que te dio el comando)**
+
+[__________________________________________________________________]{.mark}
+
 **✍️ Copia la ruta exacta que encontraste escrita en el código.** *(escribe sobre las líneas amarillas)*
 
 [__________________________________________________________________]{.mark}
@@ -1337,6 +1377,14 @@ grep -n "sleep" src/minihotel/reporte.py                          (Git Bash)
 | \                                                                        |
 | \                                                                        |
 +--------------------------------------------------------------------------+
+
+**🔎 ¿Qué está mal? (explícalo en tus palabras, 1 línea)**
+
+[__________________________________________________________________]{.mark}
+
+**📍 Ubicación exacta del error — archivo : línea (usa el número que te dio el comando)**
+
+[__________________________________________________________________]{.mark}
 
 **✍️ ¿Cuántos segundos espera esa línea a propósito?** *(escribe sobre las líneas amarillas)*
 
@@ -1366,6 +1414,16 @@ grep -rn "S/" src/minihotel/*.py                         (Git Bash)
 | \                                                                        |
 | \                                                                        |
 +--------------------------------------------------------------------------+
+
+**🔎 ¿Qué está mal? (explícalo en tus palabras, 1 línea)**
+
+[__________________________________________________________________]{.mark}
+
+**📍 Ubicaciones exactas — archivo : línea de CADA forma distinta que encontraste**
+
+[__________________________________________________________________]{.mark}
+
+[__________________________________________________________________]{.mark}
 
 **✍️ ¿Cuántas formas distintas de escribir la moneda encontraste, y en qué archivos?** *(escribe sobre las líneas amarillas)*
 
