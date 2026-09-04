@@ -70,7 +70,29 @@ Con más tiempo de sesión, empiezas **mirando el código por encima** antes de 
 | `src/minihotel/reporte.py` | El reporte y la exportación a CSV |
 | `src/minihotel/app.py` | La ventana y los botones (la interfaz) |
 
-Abre cada archivo con el Bloc de notas, VS Code o Notepad++ (no hace falta un IDE) y sigue los pasos.
+### 🔎 Cómo buscar dentro del código (léelo antes de CR1 — se usa en toda la ficha)
+
+Nunca vas a leer un archivo completo de arriba a abajo: **buscas una palabra puntual** y miras solo alrededor. Dos formas, usa la que te sea más cómoda:
+
+**Opción A — con el editor (Ctrl+F):**
+
+1. Abre el archivo con **VS Code** o **Notepad++** (no hace falta instalar nada más pesado). Evita el Bloc de notas de Windows: no muestra número de línea, y lo vas a necesitar.
+2. Con el archivo abierto, presiona **Ctrl+F**. Aparece un cuadro de búsqueda arriba o al costado.
+3. Escribe **exactamente** la palabra que se te pide en cada bloque (por ejemplo `def cancelar`), tal cual, sin comillas.
+4. Presiona **Enter**. El editor salta a la primera coincidencia y la resalta en amarillo/verde.
+5. Mira el número de línea: en VS Code aparece abajo a la derecha ("Ln 131, Col 5"); en Notepad++ aparece en la columna gris de la izquierda. Ese número es el que escribes en "Ubicación exacta".
+
+**Opción B — con el comando de la terminal (más rápido, y ya lo tienes):**
+
+Los comandos `grep -n` / `Select-String` que se dan en cada bloque **ya imprimen el número de línea** al inicio de cada resultado. Por ejemplo, si el resultado dice:
+
+```
+131:    def cancelar(self, codigo):
+```
+
+el `131` de antes de los dos puntos **es el número de línea**. No necesitas abrir el editor para esto — solo para leer más contexto alrededor si te hace falta.
+
+**Para la "Ubicación exacta del error":** escribe `archivo.py:número` (por ejemplo `hotel.py:131`), usando cualquiera de las dos opciones de arriba.
 
 ---
 
@@ -1174,7 +1196,7 @@ grep -n "for hab in self.habitaciones" src/minihotel/hotel.py                   
 
 Hasta aquí diagnosticaste **usando la ventana** (calidad externa). Estos 8 bloques cierran el círculo: vas al **código fuente** (el mismo que ya recorriste en la Sección 1) y confirmas que la causa de lo que viste está realmente ahí (calidad interna). No corrijas nada, solo cita la línea.
 
-En cada bloque de abajo se te dice **exactamente qué archivo abrir y qué palabra buscar** (`Ctrl+F` en el editor, o el comando de terminal que se da). No necesitas releer el archivo completo: busca solo esa palabra y mira las 3-4 líneas alrededor.
+En cada bloque de abajo se te dice **exactamente qué archivo abrir y qué palabra buscar**. Usa la guía de búsqueda de la Sección 1 (Ctrl+F en el editor, o el número de línea que ya imprime el comando de terminal). No necesitas releer el archivo completo: busca solo esa palabra y mira las 3-4 líneas alrededor.
 
 ---
 
